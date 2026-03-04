@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi & Misi | Hacy Araby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .arabic {
+            font-family: 'Noto Sans Arabic', serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+
+        .bg-pattern {
+            /* High Impact Geometric Pattern */
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L61.23 38.77 L100 50 L61.23 61.23 L50 100 L38.77 61.23 L0 50 L38.77 38.77 Z' fill='%2310b981' fill-opacity='0.15'/%3E%3C/svg%3E");
+            background-size: 80px 80px;
+        }
+
+        .bg-mesh-premium {
+            background-color: #ffffff;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50.48%),
+                radial-gradient(at 100% 0%, rgba(52, 211, 153, 0.08) 0px, transparent 50.48%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.12) 0px, transparent 50.48%),
+                radial-gradient(at 0% 100%, rgba(52, 211, 153, 0.08) 0px, transparent 50.48%),
+                radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.04) 0px, transparent 50.48%);
+        }
+
+        .glow-blob {
+            filter: blur(100px);
+            opacity: 0.5;
+            animation: blob-float 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes blob-float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(50px, -70px) scale(1.2);
+            }
+
+            66% {
+                transform: translate(-30px, 30px) scale(0.8);
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        /* Kustomisasi scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-white text-slate-900" x-data="{ scrolled: false, mobileMenu: false }"
+    @scroll.window="scrolled = (window.pageYOffset > 50)">
+
+    <!-- NAVIGASI -->
+    <nav :class="scrolled ? 'bg-white/95 backdrop-blur-md shadow-xl py-3' : 'bg-transparent py-5'"
+        class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <div
+                        class="w-12 h-12 rounded-xl overflow-hidden shadow-sm border-2 border-slate-200/20 bg-emerald-600 transition-colors duration-300">
+                        <img src="assets/img/gambar7.jpeg" alt="Logo Hacy Araby" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <span :class="scrolled ? 'text-slate-900' : 'text-slate-900'"
+                            class="text-xl font-black tracking-tighter block leading-none transition-colors duration-300">Hacy
+                            Araby</span>
+                        <span :class="scrolled ? 'text-emerald-600' : 'text-emerald-600'"
+                            class="text-[9px] uppercase tracking-[0.2em] font-bold transition-colors duration-300">Lembaga
+                            Kursus</span>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="text-sm font-bold text-slate-600 hover:text-emerald-500 uppercase tracking-wide transition-colors">Beranda</a>
+                    <a href="visi-misi.html"
+                        class="text-sm font-bold text-emerald-500 uppercase tracking-wide transition-colors">Visi
+                        Misi</a>
+                    <a href="pengajar.html"
+                        class="text-sm font-bold text-slate-600 hover:text-emerald-500 uppercase tracking-wide transition-colors">Pengajar</a>
+                    <a href="program.html"
+                        class="text-sm font-bold text-slate-600 hover:text-emerald-500 uppercase tracking-wide transition-colors">Program</a>
+                    <a href="galeri.html"
+                        class="text-sm font-bold text-slate-600 hover:text-emerald-500 uppercase tracking-wide transition-colors">Galeri</a>
+                    <a href="faq.html"
+                        class="text-sm font-bold text-slate-600 hover:text-emerald-500 uppercase tracking-wide transition-colors">FAQ</a>
+                    <a href="daftar.html"
+                        class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg transition-transform active:scale-95">Daftar</a>
+                </div>
+
+                <!-- Tombol Mobile -->
+                <button @click="mobileMenu = !mobileMenu" class="md:hidden outline-none text-slate-900">
+                    <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <svg x-show="mobileMenu" x-cloak xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Overlay -->
+        <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-cloak @click.away="mobileMenu = false"
+            class="md:hidden bg-white border-b p-4 space-y-2 shadow-2xl absolute w-full left-0">
+            <a href="index.html" @click="mobileMenu = false"
+                class="block text-slate-600 hover:bg-emerald-50 px-4 py-3 rounded-xl font-bold transition-colors">Beranda</a>
+            <a href="visi-misi.html" @click="mobileMenu = false"
+                class="block text-emerald-600 bg-emerald-50 px-4 py-3 rounded-xl font-bold transition-colors">Visi
+                Misi</a>
+            <a href="pengajar.html" @click="mobileMenu = false"
+                class="block text-slate-600 hover:bg-emerald-50 px-4 py-3 rounded-xl font-bold transition-colors">Pengajar</a>
+            <a href="program.html" @click="mobileMenu = false"
+                class="block text-slate-600 hover:bg-emerald-50 px-4 py-3 rounded-xl font-bold transition-colors">Program</a>
+            <a href="galeri.html" @click="mobileMenu = false"
+                class="block text-slate-600 hover:bg-emerald-50 px-4 py-3 rounded-xl font-bold transition-colors">Galeri</a>
+            <a href="faq.html" @click="mobileMenu = false"
+                class="block text-slate-600 hover:bg-emerald-50 px-4 py-3 rounded-xl font-bold transition-colors">FAQ</a>
+            <a href="daftar.html" @click="mobileMenu = false"
+                class="block bg-emerald-600 text-white text-center py-4 rounded-xl font-bold shadow-lg shadow-emerald-200">Daftar
+                Sekarang</a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-40 pb-20 bg-mesh-premium relative overflow-hidden">
+        <!-- Vibrant Floating Blobs -->
+        <div class="absolute top-1/4 -left-20 w-80 h-80 bg-emerald-200/30 rounded-full glow-blob"></div>
+        <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-100/40 rounded-full glow-blob"
+            style="animation-delay: -5s;"></div>
+
+        <div class="absolute inset-0 bg-pattern opacity-50"></div>
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-emerald-50 rounded-l-[100px] -z-10 translate-x-20"></div>
+        <div
+            class="max-w-7xl mx-auto px-4 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+                <span
+                    class="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest mb-6">Tentang
+                    Kami</span>
+                <h1 class="text-5xl lg:text-6xl font-black text-slate-900 leading-tight mb-6">
+                    Membangun Generasi <br> <span class="text-emerald-600">Literasi & Berakhlak.</span>
+                </h1>
+                <p class="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Hacy Araby hadir sejak 13 Oktober 2024 sebagai jawaban atas kebutuhan pembelajaran Bahasa Arab dan
+                    Al-Qur'an yang efektif, menyenangkan, dan relevan dengan zaman.
+                </p>
+            </div>
+            <div class="relative">
+                <div class="arabic text-[120px] text-emerald-100 absolute -top-10 -right-10 select-none">عربي</div>
+                <div class="bg-emerald-600 p-12 rounded-[3rem] text-white shadow-2xl relative z-10">
+                    <h3 class="text-2xl font-bold mb-4 italic">Motto Kami</h3>
+                    <p class="text-3xl font-serif italic mb-4 leading-snug">"Man Jadda Wajada"</p>
+                    <p class="text-emerald-100 opacity-80">(Siapa yang bersungguh-sungguh pasti ia akan berhasil)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Visi & Misi Cards -->
+    <section class="py-24 max-w-7xl mx-auto px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-20"></div>
+        <div class="grid lg:grid-cols-2 gap-8 relative z-10">
+            <!-- VISI -->
+            <div
+                class="bg-white p-10 md:p-14 rounded-[3rem] shadow-sm border border-slate-100 hover:shadow-xl transition-shadow group">
+                <div
+                    class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                        <circle cx="12" cy="12" r="3" />
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-black mb-6">Visi</h2>
+                <p class="text-xl text-slate-700 leading-relaxed font-medium">
+                    "Sebagai Lembaga Kursus yang profesional, terbaik dan unggul dalam Bahasa Arab, unggul dalam
+                    mengajarkan kemampuan baca al-Qur'an serta kemampuan literasi anak didik."
+                </p>
+            </div>
+
+            <!-- MISI -->
+            <div class="bg-slate-900 p-10 md:p-14 rounded-[3rem] text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-black mb-8 border-b border-white/10 pb-4 inline-block">Misi Kami</h2>
+                <ul class="space-y-6">
+                    <li class="flex gap-4 items-start">
+                        <div class="bg-emerald-500 w-2 h-2 rounded-full mt-2.5 shrink-0"></div>
+                        <p class="text-slate-300">Menyelenggarakan pembelajaran Bahasa Arab, baca al-Qur'an dan
+                            Calistung dengan baik dan berkualitas.</p>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <div class="bg-emerald-500 w-2 h-2 rounded-full mt-2.5 shrink-0"></div>
+                        <p class="text-slate-300">Menciptakan suasana belajar yang menyenangkan dan memenuhi kebutuhan
+                            intelektual, emosional dan spiritual.</p>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <div class="bg-emerald-500 w-2 h-2 rounded-full mt-2.5 shrink-0"></div>
+                        <p class="text-slate-300">Menjaga kualitas pendidikan kursus dengan guru-guru yang profesional
+                            dan bersertifikat.</p>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <div class="bg-emerald-500 w-2 h-2 rounded-full mt-2.5 shrink-0"></div>
+                        <p class="text-slate-300">Melakukan kerjasama pelatihan Bahasa Arab, baca al-Qur'an dan
+                            Calistung dengan sekolah formal dan non formal.</p>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <div class="bg-emerald-500 w-2 h-2 rounded-full mt-2.5 shrink-0"></div>
+                        <p class="text-slate-300">Meningkatkan kepedulian terhadap masyarakat.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tujuan Section -->
+    <section class="py-24 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Tujuan Pendidikan</h2>
+                <div class="w-20 h-1.5 bg-emerald-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <h4
+                        class="font-bold text-emerald-600 mb-4 uppercase text-xs tracking-widest italic font-black text-emerald-600">
+                        Tujuan 01</h4>
+                    <p class="text-slate-700">Menyiapkan peserta didik yang memiliki kemampuan berkomunikasi dalam
+                        Bahasa Arab, kemampuan dalam membaca al-Qur'an dengan baik dan kemampuan dalam membaca literasi.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <h4
+                        class="font-bold text-emerald-600 mb-4 uppercase text-xs tracking-widest italic font-black text-emerald-600">
+                        Tujuan 02</h4>
+                    <p class="text-slate-700">Menciptakan peserta didik yang mempunyai dasar Bahasa Arab, dasar membaca
+                        al-Qur'an dengan baik dan literasi.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <h4
+                        class="font-bold text-emerald-600 mb-4 uppercase text-xs tracking-widest italic font-black text-emerald-600">
+                        Tujuan 03</h4>
+                    <p class="text-slate-700">Menyiapkan peserta didik untuk menghadapi test Bahasa Arab, test baca
+                        al-Qur'an dan test Calistung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaders Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Pengajar & Pengelola</h2>
+                <p class="text-slate-500">Dikelola oleh tenaga profesional dan ahli di bidangnya.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Founder -->
+                <div class="flex flex-col md:flex-row gap-8 items-center md:items-start glass-card p-8 rounded-[3rem]">
+                    <div class="w-48 h-64 shrink-0 rounded-[2rem] overflow-hidden shadow-lg border-4 border-white">
+                        <img src="https://raw.githubusercontent.com/username/repo/main/image_42a8bf.png"
+                            alt="Indah Widya Ningsih" class="w-full h-full object-cover"
+                            onerror="this.src='assets/img/gambar11.jpeg'">
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-black text-slate-900 mb-1">Indah Widya Ningsih, S.Pd.</h4>
+                        <p class="text-emerald-600 font-bold text-sm mb-4 uppercase">Founder & Penulis</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Pakar <strong>Active Learning</strong> yang
+                            aktif mengamati sistem pendidikan sejak 2006. Berfokus pada pengembangan metode belajar yang
+                            solutif bagi santri.</p>
+                    </div>
+                </div>
+
+                <!-- Advisor -->
+                <div class="flex flex-col md:flex-row gap-8 items-center md:items-start glass-card p-8 rounded-[3rem]">
+                    <div class="w-48 h-64 shrink-0 rounded-[2rem] overflow-hidden shadow-lg border-4 border-white">
+                        <img src="https://raw.githubusercontent.com/username/repo/main/image_42a146.png"
+                            alt="Dr. Abdullah Sani" class="w-full h-full object-cover"
+                            onerror="this.src='assets/img/gambar10.jpeg'">
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-black text-slate-900 mb-1">Dr. Abdullah Sani Kurniadinata, M.A.</h4>
+                        <p class="text-emerald-600 font-bold text-sm mb-4 uppercase">Penasihat Akademik</p>
+                        <p class="text-slate-600 text-sm leading-relaxed">Doktor Bidang Hukum Islam lulusan
+                            <strong>Univ. Baghdad, Irak</strong>. Ahli dalam metodologi pengajaran bahasa Arab tingkat
+                            lanjut.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="kontak" class="bg-slate-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div
+                class="w-16 h-16 rounded-3xl overflow-hidden shadow-lg border-2 border-white/20 bg-emerald-600 inline-block mb-4">
+                <img src="assets/img/gambar7.jpeg" alt="Logo Hacy Araby" class="w-full h-full object-cover">
+            </div>
+            <!-- Institutional Information -->
+            <div class="mb-8">
+                <p class="text-emerald-400 font-bold tracking-[0.1em] uppercase text-[10px] leading-relaxed">
+                    Lembaga Khursus Hacy Araby<br>
+                    <span class="text-white/60 font-medium">Kemenkum RI No. AHU-0011362.AH.01.07 Tahun 2024</span>
+                </p>
+            </div>
+            <h2 class="text-3xl font-black mb-8 italic">Mulai Perjalanan Anda Bersama Kami</h2>
+            <a href="daftar.html"
+                class="inline-flex items-center gap-3 bg-emerald-500 text-slate-950 px-8 py-4 rounded-2xl font-black hover:scale-105 transition-transform shadow-xl">
+                Isi Formulir Pendaftaran
+            </a>
+            <p class="mt-12 text-slate-500 text-[10px] uppercase tracking-[0.4em]">© 2024 Hacy Araby • Lembaga Kursus
+                Bahasa Arab Modern</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
